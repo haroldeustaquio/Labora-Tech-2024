@@ -1,9 +1,7 @@
-
-
-INSERT INTO empresa (ruc, sector, departamento, anio_antiguedad, sst)
+INSERT INTO empresa (ruc, sector, departamento, anio_antiguedad)
 VALUES 
-('12345678901', 'Manufactura', 'Lima', 10, 1),
-('10987654321', 'Servicios', 'Arequipa', 5, 0);
+('12345678901', 'Manufactura', 'Lima', 10),
+('10987654321', 'Servicios', 'Arequipa', 5);
 
 
 INSERT INTO trabajador (dni, nombre, apellido, fecha_nac, genero)
@@ -13,6 +11,7 @@ VALUES
 ('23456789', 'Carlos', 'Gomez', '1983-11-02', 'Masculino'),
 ('98765432', 'Ana', 'Martinez', '1995-05-14', 'Femenino'),
 ('34567890', 'Jose', 'Diaz', '1988-08-30', 'No precisa'),
+
 ('87654322', 'Rosa', 'Torres', '1992-03-17', 'Femenino'),
 ('45678901', 'Luis', 'Ramirez', '1999-12-12', 'Masculino'),
 ('76543210', 'Carmen', 'Castro', '2000-01-01', 'Femenino'),
@@ -23,19 +22,19 @@ VALUES
 
 
 -- Declaraciones para la primera empresa en dos fechas
-INSERT INTO declaracion (id_empresa, id_trabajador, fecha_declaracion, tipo_contrato, regimen_laboral, regimen_pensionario, regimen_salud, sindicalizado, sctr, remuneracion)
+INSERT INTO declaracion (ruc, dni, fecha_declaracion, tipo_contrato, regimen_laboral, regimen_pensionario, regimen_salud, sindicalizado, sctr, remuneracion,sst)
 VALUES 
-(1, 1, '2024-01-01', 'A plazo indeterminado', 'General', 'Sistema Privado de Pensiones', 'ESSALUD', 'Si', 'Con sctr', 1500.00),
-(1, 2, '2024-01-01', 'De naturaleza temporal', 'Micro empresa', 'Sistema Nacional de Pensiones', 'ESSALUD', 'No', 'Sin sctr', 1200.00),
-(1, 3, '2024-01-01', 'Tiempo parcial', 'Pequena empresa', 'Sistema Privado de Pensiones', 'SIS', 'No', 'Sin sctr', 800.00),
-(1, 4, '2024-01-01', 'De obra o servicio', 'Agrario', 'Otro regimen pensionario', 'ESSALUD', 'No', 'Con sctr', 1100.00),
-(1, 5, '2024-01-01', 'A plazo indeterminado', 'General', 'Sistema Privado de Pensiones', 'ESSALUD', 'Si', 'Con sctr', 1550.00),
+('12345678901', '12345678', '2024-01-01', 'A plazo indeterminado', 'General', 'Sistema Privado de Pensiones', 'ESSALUD', 'Si', 'Con sctr', 1500.00,1),
+('12345678901', '87654321', '2024-01-01', 'De naturaleza temporal', 'Micro empresa', 'Sistema Nacional de Pensiones', 'ESSALUD', 'No', 'Sin sctr', 1200.00,0),
+('12345678901', '23456789', '2024-01-01', 'Tiempo parcial', 'Pequena empresa', 'Sistema Privado de Pensiones', 'SIS', 'No', 'Sin sctr', 800.00,1),
+('12345678901', '98765432', '2024-01-01', 'De obra o servicio', 'Agrario', 'Otro regimen pensionario', 'ESSALUD', 'No', 'Con sctr', 1100.00,0),
+('12345678901', '34567890', '2024-01-01', 'A plazo indeterminado', 'General', 'Sistema Privado de Pensiones', 'ESSALUD', 'Si', 'Con sctr', 1550.00,1),
 
-(1, 1, '2024-02-01', 'De naturaleza accidental', 'Pequena empresa', 'Sistema Nacional de Pensiones', 'ESSALUD', 'No', 'Sin sctr', 1150.00),
-(1, 2, '2024-02-01', 'Tiempo parcial', 'Micro empresa', 'Sistema Nacional de Pensiones', 'SIS', 'Si', 'Con sctr', 1300.00),
-(1, 3, '2024-02-01', 'A plazo indeterminado', 'General', 'Sistema Privado de Pensiones', 'ESSALUD Agrario', 'Si', 'Con sctr', 1600.00),
-(1, 4, '2024-02-01', 'De naturaleza temporal', 'Agrario', 'Sistema Nacional de Pensiones', 'ESSALUD', 'No', 'Sin sctr', 950.00),
-(1, 5, '2024-02-01', 'De obra o servicio', 'Pequena empresa', 'Otro regimen pensionario', 'SIS', 'No', 'Con sctr', 1250.00);
+('10987654321','87654322', '2024-02-01', 'De naturaleza accidental', 'Pequena empresa', 'Sistema Nacional de Pensiones', 'ESSALUD', 'No', 'Sin sctr', 1150.00,1),
+('10987654321','45678901', '2024-02-01', 'Tiempo parcial', 'Micro empresa', 'Sistema Nacional de Pensiones', 'SIS', 'Si', 'Con sctr', 1300.00,1),
+('10987654321','76543210', '2024-02-01', 'A plazo indeterminado', 'General', 'Sistema Privado de Pensiones', 'ESSALUD Agrario', 'Si', 'Con sctr', 1600.00,1),
+('10987654321','56789012', '2024-02-01', 'De naturaleza temporal', 'Agrario', 'Sistema Nacional de Pensiones', 'ESSALUD', 'No', 'Sin sctr', 950.00,0),
+('10987654321','65432109', '2024-02-01', 'De obra o servicio', 'Pequena empresa', 'Otro regimen pensionario', 'SIS', 'No', 'Con sctr', 1250.00,1);
 
 -- Declaraciones para la segunda empresa en dos fechas
 INSERT INTO declaracion (id_empresa, id_trabajador, fecha_declaracion, tipo_contrato, regimen_laboral, regimen_pensionario, regimen_salud, sindicalizado, sctr, remuneracion)
@@ -53,8 +52,6 @@ VALUES
 (2, 10, '2024-02-01', 'A plazo indeterminado', 'General', 'Sistema Privado de Pensiones', 'ESSALUD Agrario', 'No', 'Con sctr', 1550.00);
 
 
-
-select * from resumen
 
 EXEC sp_obtener_resumen_por_empresa_y_fecha 
     @id_empresa = 1, 
