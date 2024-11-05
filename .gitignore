@@ -1,6 +1,7 @@
 .venv/
 data.xlsx
 data.csv
+data/
 metadata.xlsx
 metadata.docx
 diccionario.xlsx
