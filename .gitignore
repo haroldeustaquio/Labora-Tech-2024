@@ -5,3 +5,6 @@ data/
 metadata.xlsx
 metadata.docx
 diccionario.xlsx
+*.parquet
+*.json
+architecture/
