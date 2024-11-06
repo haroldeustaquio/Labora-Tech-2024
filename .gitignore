@@ -8,3 +8,4 @@ diccionario.xlsx
 *.parquet
 *.json
 architecture/
+garbage/
