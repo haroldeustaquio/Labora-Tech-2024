@@ -24,7 +24,7 @@ La arquitectura del sistema permite el flujo de datos desde la declaración inic
 2. **Consultas a APIs**: Utilizando el **RUC** y el **DNI**, se consultan las APIs para obtener datos adicionales.
 3. **Almacenamiento en Base de Datos**: La información se guarda en las tablas `empresa` y `trabajador`, permitiendo su reutilización y análisis posterior.
 
-![Arquitectura de Extracción de Datos](architecture/architecture.png)
+![Arquitectura de Extracción de Datos](architecture/architecture1.png)
 *Figura 1: Arquitectura de Extracción de Datos*
 
 ## Estructura de la Base de Datos
