@@ -24,7 +24,7 @@ La arquitectura del sistema permite el flujo de datos desde la declaración inic
 2. **Consultas a APIs**: Utilizando el **RUC** y el **DNI**, se consultan las APIs para obtener datos adicionales.
 3. **Almacenamiento en Base de Datos**: La información se guarda en las tablas `empresa` y `trabajador`, permitiendo su reutilización y análisis posterior.
 
-![Arquitectura de Extracción de Datos](architecture.png)
+![Arquitectura de Extracción de Datos](architecture/architecture.png)
 *Figura 1: Arquitectura de Extracción de Datos*
 
 ## Estructura de la Base de Datos
@@ -53,7 +53,7 @@ La arquitectura del sistema permite el flujo de datos desde la declaración inic
 1. **Tabla `declaracion`**: Registra información detallada sobre cada declaración de cumplimiento normativo.
 2. **Tabla `resumen`**: Consolida los datos clave para facilitar el análisis y generación de reportes.
 
-![Modelo Entidad-Relación](architecture2.png)
+![Modelo Entidad-Relación](architecture/architecture2.png)
 *Figura 2: Modelo Entidad-Relación*
 
 ## Automatización mediante Triggers y Stored Procedures
@@ -63,7 +63,7 @@ Para mantener los datos actualizados y facilitar el acceso desde la interfaz web
 - **Trigger de Actualización**: Cada vez que se inserta o actualiza una declaración, el trigger actualiza automáticamente la tabla `resumen`.
 - **Stored Procedure (SP) para Conexión con la Página Web**: Permite la conexión entre la base de datos y la página web, facilitando la consulta de datos en tiempo real por parte de los usuarios.
 
-![Interacción entre Triggers y Stored Procedure](architecture3.png)
+![Interacción entre Triggers y Stored Procedure](architecture/architecture3.png)
 *Figura 3: Interacción entre las tablas con el Trigger y Store Procedure*
 
 ## Archivos SQL
