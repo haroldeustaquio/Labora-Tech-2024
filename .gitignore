@@ -7,5 +7,4 @@ metadata.docx
 diccionario.xlsx
 *.parquet
 *.json
-architecture/
 garbage/
